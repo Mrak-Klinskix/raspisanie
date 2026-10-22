@@ -1,1 +1,34 @@
+name: Build APK
 
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate project files
+        run: |
+          echo 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 | base64 -d | tar xz
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Build debug APK
+        run: |
+          gradle wrapper --gradle-version 8.7
+          ./gradlew assembleDebug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: EPCSchedule-apk
+          path: app/build/outputs/apk/debug/app-debug.apk
